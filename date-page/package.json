@@ -9,11 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "dotenv": "^17.4.2",
     "preact": "^10.29.8"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.6",
     "@types/node": "^24.13.3",
+    "googleapis": "^180.0.0",
+    "open": "^11.0.2",
     "typescript": "~6.0.2",
     "vite": "^8.2.2"
   }

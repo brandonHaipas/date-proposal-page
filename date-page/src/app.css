@@ -194,3 +194,24 @@
     border-right-color: var(--border);
   }
 }
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.fields input {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--warm-grey);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.95rem;
+  background: transparent;
+}
+
+.error-text {
+  color: #B4453A;
+  font-size: 0.9rem;
+  margin: -0.5rem 0 1rem;
+}
