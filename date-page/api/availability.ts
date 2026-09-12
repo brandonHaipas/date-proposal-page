@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { getCalendarClient } from './_google';
+import { getCalendarClient } from './_google.js';
 
 const SLOT_MINUTES = 60;
 const DAY_START_HOUR = 9;
