@@ -33,7 +33,7 @@ export function BookingPage({ onBooked }: BookingPageProps) {
   useEffect(() => {
     fetch('/api/availability')
       .then((res) => {
-        if (!res.ok) throw new Error('Failed to load availability');
+        if (!res.ok) throw new Error('No se pudo cargar la disponibilidad');
         return res.json();
       })
       .then((data: { slots: string[] }) => {
@@ -63,20 +63,20 @@ export function BookingPage({ onBooked }: BookingPageProps) {
 
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
-        throw new Error(body.error || 'Something went wrong booking that slot.');
+        throw new Error(body.error || 'Algo salió mal al reservar este horario.');
       }
 
       onBooked(selected);
     } catch (err) {
       setSubmitState('error');
-      setSubmitError(err instanceof Error ? err.message : 'Something went wrong.');
+      setSubmitError(err instanceof Error ? err.message : 'Algo salió mal.');
     }
   }
 
   if (loadState === 'loading') {
     return (
       <Card align="center">
-        <p className="question">Checking his calendar…</p>
+        <p className="question">Revisando su calendario…</p>
       </Card>
     );
   }
@@ -84,8 +84,8 @@ export function BookingPage({ onBooked }: BookingPageProps) {
   if (loadState === 'error') {
     return (
       <Card align="center">
-        <p className="question">Couldn't load available times.</p>
-        <p className="eyebrow">Try refreshing the page.</p>
+        <p className="question">No se pudieron cargar los horarios disponibles.</p>
+        <p className="eyebrow">Intenta recargar la página.</p>
       </Card>
     );
   }
@@ -93,16 +93,16 @@ export function BookingPage({ onBooked }: BookingPageProps) {
   if (slots.length === 0) {
     return (
       <Card align="center">
-        <p className="question">No open slots right now.</p>
-        <p className="eyebrow">Check back soon, or reach out directly.</p>
+        <p className="question">No hay horarios disponibles ahora mismo.</p>
+        <p className="eyebrow">Vuelve pronto o contáctame directamente.</p>
       </Card>
     );
   }
 
   return (
     <Card align="center">
-      <p className="eyebrow">Pick a time</p>
-      <h1 className="question">When works for you?</h1>
+      <p className="eyebrow">Elige un horario</p>
+      <h1 className="question">¿Qué horario te funciona?</h1>
 
       <div className="slots">
         {slots.map((slot) => (
@@ -121,13 +121,13 @@ export function BookingPage({ onBooked }: BookingPageProps) {
       <div className="fields">
         <input
           type="text"
-          placeholder="Your name"
+          placeholder="Tu nombre"
           value={guestName}
           onInput={(e) => setGuestName((e.target as HTMLInputElement).value)}
         />
         <input
           type="email"
-          placeholder="Your email"
+          placeholder="Tu correo electrónico"
           value={guestEmail}
           onInput={(e) => setGuestEmail((e.target as HTMLInputElement).value)}
         />
@@ -138,7 +138,7 @@ export function BookingPage({ onBooked }: BookingPageProps) {
       )}
 
       <Button variant="ember" onClick={handleConfirm}>
-        {submitState === 'submitting' ? 'Booking…' : 'Confirm'}
+        {submitState === 'submitting' ? 'Reservando…' : 'Confirmar'}
       </Button>
     </Card>
   );

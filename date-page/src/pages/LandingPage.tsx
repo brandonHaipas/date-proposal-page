@@ -9,13 +9,13 @@ interface LandingPageProps {
 export function LandingPage({ onYes, onNo }: LandingPageProps) {
   return (
     <Card>
-      <p className="eyebrow">A question, for you</p>
+      <p className="eyebrow">Una pregunta para ti</p>
       <h1 className="question">
-        Would you go on<br />a date with me?
+        ¿Saldrías conmigo<br />a una cita?
       </h1>
       <div className="actions">
-        <Button variant="ember" onClick={onYes}>Yes, I would</Button>
-        <Button variant="ash" onClick={onNo}>Not right now</Button>
+        <Button variant="ember" onClick={onYes}>Sí, me encantaría</Button>
+        <Button variant="ash" onClick={onNo}>Ahora no</Button>
       </div>
     </Card>
   );

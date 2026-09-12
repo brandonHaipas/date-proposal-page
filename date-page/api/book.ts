@@ -6,7 +6,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const { slotIso, guestName, guestEmail } = req.body;
   if (!slotIso || !guestEmail) {
-    return res.status(400).json({ error: 'Missing slotIso or guestEmail' });
+    return res.status(400).json({ error: 'Falta la fecha o el correo electrónico' });
   }
 
   const calendar = getCalendarClient();
@@ -17,7 +17,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     calendarId: process.env.CALENDAR_ID || 'primary',
     sendUpdates: 'all',
     requestBody: {
-      summary: `Date with ${guestName || 'you'} 🌙`,
+      summary: `Cita con ${guestName || 'tú'} 🌙`,
       start: { dateTime: start.toISOString() },
       end: { dateTime: end.toISOString() },
       attendees: [{ email: guestEmail }],

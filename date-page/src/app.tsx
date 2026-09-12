@@ -16,7 +16,7 @@ export function App() {
   if (step === 'no') {
     return (
       <Card align="center">
-        <p className="question">Okay, no worries — thanks for reading this far.</p>
+        <p className="question">Está bien, no pasa nada — gracias por llegar hasta aquí.</p>
       </Card>)
   }
   if (step === 'booking') {
@@ -31,7 +31,7 @@ export function App() {
   }
   return (
     <Card align="center">
-      <p className="question">See you {chosenSlot} 🎉</p>
+      <p className="question">Nos vemos {chosenSlot} 🎉</p>
     </Card>
   );
 }
